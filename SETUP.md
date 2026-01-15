@@ -62,7 +62,7 @@ psql -U postgres -d trading_platform -f scripts/01-initial-schema.sql
 ### 4. Run Backend Server
 
 ```bash
-uvicorn backend.api.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 The API will be available at `http://localhost:8000`

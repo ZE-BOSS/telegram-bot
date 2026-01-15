@@ -10,8 +10,8 @@ from sqlalchemy.orm import sessionmaker
 sys.path.insert(0, ".")
 sys.path.insert(0, "..")
 
-from backend.models import Base, NotificationSubscriber, User
-from backend.core.telegram_listener import TelegramSignalListener
+from models import Base, NotificationSubscriber, User
+from core.telegram_listener import TelegramSignalListener
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
