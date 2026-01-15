@@ -1,0 +1,401 @@
+2026-01-13 16:14:35,229 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-13 16:14:44,834 - __main__ - INFO - Database initialized
+2026-01-13 16:14:45,010 - __main__ - INFO - All components initialized
+2026-01-13 16:14:45,013 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 16:14:45,215 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-13 16:14:57,423 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-13 16:18:00,818 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-13 16:18:09,543 - __main__ - INFO - Database initialized
+2026-01-13 16:18:09,696 - __main__ - INFO - All components initialized
+2026-01-13 16:18:09,700 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 16:18:09,878 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-13 16:18:11,058 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-13 16:18:12,210 - core.telegram_listener - INFO - Resolved entity for channel -1003500611662: Cypher Bot (ID: 3500611662)
+2026-01-13 16:18:12,211 - core.telegram_listener - INFO - Listening to channel: Cypher Bot (-1003500611662)
+2026-01-13 16:18:12,212 - __main__ - INFO - Listener started. Monitoring 1 channels.
+2026-01-13 16:18:12,213 - core.telegram_listener - INFO - Telegram listener running...
+2026-01-13 16:18:53,435 - core.telegram_listener - INFO - New message from Cypher Bot
+2026-01-13 16:18:53,480 - core.telegram_listener - INFO - Processing signal message from channel -1003500611662
+2026-01-13 16:18:53,776 - core.telegram_listener - INFO - Forwarded signal to +2349166987346
+2026-01-13 16:18:53,777 - core.signal_parser - INFO - Using heuristic-based signal parsing
+2026-01-13 16:18:55,386 - core.telegram_listener - INFO - Signal recorded: 17c67313-3e28-4f01-91eb-b80687ffa493
+2026-01-13 16:18:58,415 - __main__ - INFO - Executing signal 17c67313-3e28-4f01-91eb-b80687ffa493 for broker Exness
+2026-01-13 16:18:58,416 - core.execution_state_manager - INFO - Starting execution for signal 17c67313-3e28-4f01-91eb-b80687ffa493
+2026-01-13 16:18:59,696 - core.execution_state_manager - ERROR - Critical error in signal execution: (psycopg2.errors.NotNullViolation) null value in column "symbol" of relation "trade_executions" violates not-null constraint
+DETAIL:  Failing row contains (86616e55-e5b5-4742-91b3-3eca588f561d, 4d89a9bd-e47a-48e1-a51f-3cbe52bc756b, 17c67313-3e28-4f01-91eb-b80687ffa493, 4aa791ba-3074-4de5-b35c-cb08b112741e, null, null, pending, null, null, null, 1.0, null, null, null, null, null, null, null, null, null, null, 2026-01-13 15:18:59.066127, 2026-01-13 15:18:59.066131).
+
+[SQL: INSERT INTO trade_executions (id, user_id, signal_id, broker_config_id, order_id, ticket_number, execution_status, execution_type, symbol, side, volume, entry_price, stop_loss, take_profit, actual_entry_price, actual_entry_time, close_price, close_time, profit_loss, execution_error, executed_at, created_at, updated_at) VALUES (%(id)s::UUID, %(user_id)s::UUID, %(signal_id)s::UUID, %(broker_config_id)s::UUID, %(order_id)s, %(ticket_number)s, %(execution_status)s, %(execution_type)s, %(symbol)s, %(side)s, %(volume)s, %(entry_price)s, %(stop_loss)s, %(take_profit)s, %(actual_entry_price)s, %(actual_entry_time)s, %(close_price)s, %(close_time)s, %(profit_loss)s, %(execution_error)s, %(executed_at)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'id': UUID('86616e55-e5b5-4742-91b3-3eca588f561d'), 'user_id': UUID('4d89a9bd-e47a-48e1-a51f-3cbe52bc756b'), 'signal_id': UUID('17c67313-3e28-4f01-91eb-b80687ffa493'), 'broker_config_id': UUID('4aa791ba-3074-4de5-b35c-cb08b112741e'), 'order_id': None, 'ticket_number': None, 'execution_status': 'pending', 'execution_type': None, 'symbol': None, 'side': None, 'volume': 1.0, 'entry_price': None, 'stop_loss': None, 'take_profit': None, 'actual_entry_price': None, 'actual_entry_time': None, 'close_price': None, 'close_time': None, 'profit_loss': None, 'execution_error': None, 'executed_at': None, 'created_at': datetime.datetime(2026, 1, 13, 15, 18, 59, 66127), 'updated_at': datetime.datetime(2026, 1, 13, 15, 18, 59, 66131)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "symbol" of relation "trade_executions" violates not-null constraint
+DETAIL:  Failing row contains (86616e55-e5b5-4742-91b3-3eca588f561d, 4d89a9bd-e47a-48e1-a51f-3cbe52bc756b, 17c67313-3e28-4f01-91eb-b80687ffa493, 4aa791ba-3074-4de5-b35c-cb08b112741e, null, null, pending, null, null, null, 1.0, null, null, null, null, null, null, null, null, null, null, 2026-01-13 15:18:59.066127, 2026-01-13 15:18:59.066131).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ikchr\Music\telegram-bot\backend\core\execution_state_manager.py", line 77, in execute_signal
+    self.db_session.flush()  # Get the ID without committing
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+        statement,
+        params,
+        execution_options=execution_options,
+    )
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.IntegrityError: (psycopg2.errors.NotNullViolation) null value in column "symbol" of relation "trade_executions" violates not-null constraint
+DETAIL:  Failing row contains (86616e55-e5b5-4742-91b3-3eca588f561d, 4d89a9bd-e47a-48e1-a51f-3cbe52bc756b, 17c67313-3e28-4f01-91eb-b80687ffa493, 4aa791ba-3074-4de5-b35c-cb08b112741e, null, null, pending, null, null, null, 1.0, null, null, null, null, null, null, null, null, null, null, 2026-01-13 15:18:59.066127, 2026-01-13 15:18:59.066131).
+
+[SQL: INSERT INTO trade_executions (id, user_id, signal_id, broker_config_id, order_id, ticket_number, execution_status, execution_type, symbol, side, volume, entry_price, stop_loss, take_profit, actual_entry_price, actual_entry_time, close_price, close_time, profit_loss, execution_error, executed_at, created_at, updated_at) VALUES (%(id)s::UUID, %(user_id)s::UUID, %(signal_id)s::UUID, %(broker_config_id)s::UUID, %(order_id)s, %(ticket_number)s, %(execution_status)s, %(execution_type)s, %(symbol)s, %(side)s, %(volume)s, %(entry_price)s, %(stop_loss)s, %(take_profit)s, %(actual_entry_price)s, %(actual_entry_time)s, %(close_price)s, %(close_time)s, %(profit_loss)s, %(execution_error)s, %(executed_at)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'id': UUID('86616e55-e5b5-4742-91b3-3eca588f561d'), 'user_id': UUID('4d89a9bd-e47a-48e1-a51f-3cbe52bc756b'), 'signal_id': UUID('17c67313-3e28-4f01-91eb-b80687ffa493'), 'broker_config_id': UUID('4aa791ba-3074-4de5-b35c-cb08b112741e'), 'order_id': None, 'ticket_number': None, 'execution_status': 'pending', 'execution_type': None, 'symbol': None, 'side': None, 'volume': 1.0, 'entry_price': None, 'stop_loss': None, 'take_profit': None, 'actual_entry_price': None, 'actual_entry_time': None, 'close_price': None, 'close_time': None, 'profit_loss': None, 'execution_error': None, 'executed_at': None, 'created_at': datetime.datetime(2026, 1, 13, 15, 18, 59, 66127), 'updated_at': datetime.datetime(2026, 1, 13, 15, 18, 59, 66131)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-01-13 16:25:16,166 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
+2026-01-13 16:25:16,169 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
+2026-01-13 17:08:10,032 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-13 17:08:18,421 - __main__ - INFO - Database initialized
+2026-01-13 17:08:18,603 - __main__ - INFO - All components initialized
+2026-01-13 17:08:18,607 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 17:08:18,823 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-13 17:08:20,103 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-13 17:10:13,875 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-13 17:10:22,260 - __main__ - INFO - Database initialized
+2026-01-13 17:10:22,395 - __main__ - INFO - All components initialized
+2026-01-13 17:10:22,398 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 17:10:22,585 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-13 17:10:23,703 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-13 17:10:24,583 - core.telegram_listener - INFO - Resolved entity for channel -1003500611662: Cypher Bot (ID: 3500611662)
+2026-01-13 17:10:24,584 - core.telegram_listener - INFO - Listening to channel: Cypher Bot (-1003500611662)
+2026-01-13 17:10:24,586 - __main__ - INFO - Listener started. Monitoring 1 channels.
+2026-01-13 17:10:24,587 - core.telegram_listener - INFO - Telegram listener running...
+2026-01-13 17:10:24,588 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:11:24,604 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:11:26,867 - core.telegram_listener - INFO - New message from Cypher Bot
+2026-01-13 17:11:26,871 - core.telegram_listener - INFO - Processing signal message from channel -1003500611662
+2026-01-13 17:11:27,214 - core.signal_parser - INFO - Using heuristic-based signal parsing
+2026-01-13 17:11:28,736 - core.telegram_listener - INFO - Signal recorded: f2eab807-3794-42b1-80d1-5e310d769171
+2026-01-13 17:11:31,934 - __main__ - INFO - Executing signal f2eab807-3794-42b1-80d1-5e310d769171 for broker Exness
+2026-01-13 17:11:31,935 - core.execution_state_manager - INFO - Starting execution for signal f2eab807-3794-42b1-80d1-5e310d769171
+2026-01-13 17:11:32,576 - core.execution_state_manager - WARNING - Signal missing symbol
+2026-01-13 17:11:32,577 - core.execution_state_manager - WARNING - Skipping execution for invalid signal f2eab807-3794-42b1-80d1-5e310d769171
+2026-01-13 17:12:24,606 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:13:24,619 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:14:24,635 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:15:24,650 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:16:24,658 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:17:24,667 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:18:24,670 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:19:24,681 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:20:24,687 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:21:24,702 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:22:24,705 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:23:24,706 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:24:24,710 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:25:24,717 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:26:24,728 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:27:24,736 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:28:24,742 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:29:24,744 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:30:24,750 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:31:24,752 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:32:24,767 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:33:24,775 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:34:24,780 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:35:24,784 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:36:24,794 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:37:24,802 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:38:24,813 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:39:24,820 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:40:24,823 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:41:24,830 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:42:24,846 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:42:39,141 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-13 17:42:47,210 - __main__ - INFO - Database initialized
+2026-01-13 17:42:47,733 - __main__ - INFO - All components initialized
+2026-01-13 17:42:47,742 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 17:42:47,893 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-13 17:42:48,967 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
+2026-01-13 17:42:48,970 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
+2026-01-13 17:42:48,999 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-13 17:42:50,047 - core.telegram_listener - INFO - Resolved entity for channel -1003500611662: Cypher Bot (ID: 3500611662)
+2026-01-13 17:42:50,048 - core.telegram_listener - INFO - Listening to channel: Cypher Bot (-1003500611662)
+2026-01-13 17:42:50,051 - __main__ - INFO - Listener started. Monitoring 1 channels.
+2026-01-13 17:42:50,052 - core.telegram_listener - INFO - Telegram listener running...
+2026-01-13 17:42:50,052 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:43:39,400 - core.telegram_listener - INFO - New message from Cypher Bot
+2026-01-13 17:43:39,401 - core.telegram_listener - INFO - Processing signal message from channel -1003500611662
+2026-01-13 17:43:39,955 - core.telegram_listener - INFO - Forwarded signal to Fey (1061435133)
+2026-01-13 17:43:39,956 - core.signal_parser - INFO - Using heuristic-based signal parsing
+2026-01-13 17:43:41,556 - core.telegram_listener - INFO - Signal recorded: 891717e0-9c86-4386-b8e9-6d5c00535e4a
+2026-01-13 17:43:44,601 - __main__ - INFO - Executing signal 891717e0-9c86-4386-b8e9-6d5c00535e4a for broker Exness
+2026-01-13 17:43:44,611 - core.execution_state_manager - INFO - Starting execution for signal 891717e0-9c86-4386-b8e9-6d5c00535e4a
+2026-01-13 17:43:45,310 - core.execution_state_manager - WARNING - Signal missing symbol
+2026-01-13 17:43:45,311 - core.execution_state_manager - WARNING - Skipping execution for invalid signal 891717e0-9c86-4386-b8e9-6d5c00535e4a
+2026-01-13 17:43:49,290 - telethon.network.connection.connection - WARNING - Server closed the connection: [WinError 64] The specified network name is no longer available
+2026-01-13 17:43:49,292 - telethon.network.mtprotosender - INFO - Connection closed while receiving data: [WinError 64] The specified network name is no longer available
+2026-01-13 17:43:49,293 - telethon.network.mtprotosender - INFO - Closing current connection to begin reconnect...
+2026-01-13 17:43:49,294 - telethon.network.connection.connection - INFO - <class 'ConnectionResetError'> during disconnect: [WinError 64] The specified network name is no longer available
+2026-01-13 17:43:49,295 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 17:43:49,450 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-13 17:43:50,061 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:44:50,076 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:45:49,080 - telethon.network.connection.connection - WARNING - Server closed the connection: [WinError 64] The specified network name is no longer available
+2026-01-13 17:45:49,082 - telethon.network.mtprotosender - INFO - Connection closed while receiving data: [WinError 64] The specified network name is no longer available
+2026-01-13 17:45:49,085 - telethon.network.mtprotosender - INFO - Closing current connection to begin reconnect...
+2026-01-13 17:45:49,087 - telethon.network.connection.connection - INFO - <class 'ConnectionResetError'> during disconnect: [WinError 64] The specified network name is no longer available
+2026-01-13 17:45:49,108 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 17:45:49,325 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-13 17:45:50,091 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:46:50,107 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:47:50,111 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:48:50,124 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:49:50,130 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:50:50,131 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:51:50,145 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:52:50,157 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:53:50,172 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:54:50,187 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 17:55:50,193 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 20:55:52,155 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-13 20:55:52,682 - telethon.network.connection.connection - WARNING - Server closed the connection: [WinError 1236] The network connection was aborted by the local system
+2026-01-13 20:55:53,088 - telethon.network.mtprotosender - INFO - Connection closed while sending data
+2026-01-13 20:55:53,383 - telethon.network.mtprotosender - INFO - Connection closed while receiving data: [WinError 1236] The network connection was aborted by the local system
+2026-01-13 20:55:53,462 - telethon.network.mtprotosender - INFO - Closing current connection to begin reconnect...
+2026-01-13 20:55:53,527 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 20:55:53,636 - telethon.network.mtprotosender - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:55:53,638 - telethon.network.connection.connection - INFO - <class 'ConnectionAbortedError'> during disconnect: [WinError 1236] The network connection was aborted by the local system
+2026-01-13 20:55:54,642 - telethon.network.mtprotosender - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:55:55,761 - telethon.network.mtprotosender - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:55:56,837 - telethon.network.mtprotosender - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:55:57,988 - telethon.network.mtprotosender - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:55:59,012 - telethon.network.mtprotosender - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:56:00,049 - telethon.network.mtprotosender - INFO - Failed reconnection attempt 1 with ConnectionError
+2026-01-13 20:56:01,098 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-13 20:56:01,108 - telethon.network.mtprotosender - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:56:02,128 - telethon.network.mtprotosender - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:56:03,137 - telethon.network.mtprotosender - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-13 20:56:04,152 - telethon.network.mtprotosender - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:15,128 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 01:25:16,201 - telethon.network.mtprotosender - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:17,887 - telethon.network.mtprotosender - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:19,114 - telethon.network.mtprotosender - INFO - Failed reconnection attempt 2 with ConnectionError
+2026-01-14 01:25:20,156 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-14 01:25:20,273 - telethon.network.mtprotosender - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:21,341 - telethon.network.mtprotosender - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:22,351 - telethon.network.mtprotosender - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:23,506 - telethon.network.mtprotosender - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:24,569 - telethon.network.mtprotosender - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:25,591 - telethon.network.mtprotosender - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:26,599 - telethon.network.mtprotosender - INFO - Failed reconnection attempt 3 with ConnectionError
+2026-01-14 01:25:27,622 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-14 01:25:27,625 - telethon.network.mtprotosender - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:28,634 - telethon.network.mtprotosender - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:29,645 - telethon.network.mtprotosender - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:30,671 - telethon.network.mtprotosender - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:31,681 - telethon.network.mtprotosender - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:32,699 - telethon.network.mtprotosender - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:33,713 - telethon.network.mtprotosender - INFO - Failed reconnection attempt 4 with ConnectionError
+2026-01-14 01:25:34,727 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-14 01:25:34,730 - telethon.network.mtprotosender - WARNING - Attempt 1 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:35,745 - telethon.network.mtprotosender - WARNING - Attempt 2 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:36,762 - telethon.network.mtprotosender - WARNING - Attempt 3 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:37,778 - telethon.network.mtprotosender - WARNING - Attempt 4 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:38,789 - telethon.network.mtprotosender - WARNING - Attempt 5 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:39,804 - telethon.network.mtprotosender - WARNING - Attempt 6 at connecting failed: OSError: [WinError 1232] The network location cannot be reached. For information about network troubleshooting, see Windows Help
+2026-01-14 01:25:40,819 - telethon.network.mtprotosender - INFO - Failed reconnection attempt 5 with ConnectionError
+2026-01-14 01:25:41,833 - telethon.network.mtprotosender - ERROR - Automatic reconnection failed 5 time(s)
+2026-01-14 01:25:41,834 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
+2026-01-14 01:25:41,840 - asyncio - ERROR - Future exception was never retrieved
+future: <Future finished exception=ConnectionError('Connection to Telegram failed 5 time(s)')>
+ConnectionError: Connection to Telegram failed 5 time(s)
+2026-01-14 01:25:41,842 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
+2026-01-14 01:25:41,843 - telethon.client.updates - INFO - Cannot get difference since the network is down: ConnectionError: Connection to Telegram failed 5 time(s)
+2026-01-14 01:25:41,844 - telethon.network.mtprotosender - INFO - Not disconnecting (already have no connection)
+2026-01-14 01:25:42,379 - sqlalchemy.pool.impl.QueuePool - ERROR - Exception during reset or similar
+Traceback (most recent call last):
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 985, in _finalize_fairy
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\pool\base.py", line 1433, in _reset
+  File "C:\Users\ikchr\AppData\Roaming\Python\Python313\site-packages\sqlalchemy\engine\default.py", line 711, in do_rollback
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+2026-01-14 02:06:18,244 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-14 02:06:27,693 - __main__ - INFO - Database initialized
+2026-01-14 02:06:27,970 - __main__ - INFO - All components initialized
+2026-01-14 02:06:27,985 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-14 02:06:28,187 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-14 02:06:29,308 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-14 02:06:30,176 - core.telegram_listener - INFO - Resolved entity for channel -1003500611662: Cypher Bot (ID: 3500611662)
+2026-01-14 02:06:30,176 - core.telegram_listener - INFO - Listening to channel: Cypher Bot (-1003500611662)
+2026-01-14 02:06:30,176 - __main__ - INFO - Listener started. Monitoring 1 channels.
+2026-01-14 02:06:30,176 - core.telegram_listener - INFO - Telegram listener running...
+2026-01-14 02:06:30,177 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:07:25,847 - telethon.network.mtprotosender - INFO - Disconnecting from 149.154.167.91:443/TcpFull...
+2026-01-14 02:07:25,851 - telethon.network.mtprotosender - INFO - Disconnection from 149.154.167.91:443/TcpFull complete!
+2026-01-14 02:08:53,399 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-14 02:09:01,870 - __main__ - INFO - Database initialized
+2026-01-14 02:09:02,023 - __main__ - INFO - All components initialized
+2026-01-14 02:09:02,025 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-14 02:09:02,181 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-14 02:09:03,215 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-14 02:09:04,185 - core.telegram_listener - INFO - Resolved entity for channel -1003500611662: Cypher Bot (ID: 3500611662)
+2026-01-14 02:09:04,186 - core.telegram_listener - INFO - Listening to channel: Cypher Bot (-1003500611662)
+2026-01-14 02:09:04,189 - __main__ - INFO - Listener started. Monitoring 1 channels.
+2026-01-14 02:09:04,190 - core.telegram_listener - INFO - Telegram listener running...
+2026-01-14 02:09:04,191 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:09:45,120 - core.telegram_listener - INFO - New message from Cypher Bot
+2026-01-14 02:09:45,121 - core.telegram_listener - INFO - Processing signal message from channel -1003500611662
+2026-01-14 02:09:45,637 - core.telegram_listener - INFO - Forwarded signal to Fey (1061435133)
+2026-01-14 02:09:45,638 - core.signal_parser - INFO - Using heuristic-based signal parsing
+2026-01-14 02:09:47,207 - core.telegram_listener - INFO - Signal recorded: 3c0eda44-c6e6-4e11-8b84-8d88d8ad896a
+2026-01-14 02:09:50,416 - __main__ - INFO - Executing signal 3c0eda44-c6e6-4e11-8b84-8d88d8ad896a for broker Exness
+2026-01-14 02:09:51,307 - core.execution_state_manager - INFO - Starting execution for signal 3c0eda44-c6e6-4e11-8b84-8d88d8ad896a
+2026-01-14 02:09:52,335 - core.execution_state_manager - WARNING - Sell signal: invalid price levels (TP should be below entry, SL above)
+2026-01-14 02:09:52,336 - core.execution_state_manager - WARNING - Skipping execution for invalid signal 3c0eda44-c6e6-4e11-8b84-8d88d8ad896a
+2026-01-14 02:10:04,198 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:11:04,208 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:12:04,216 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:13:04,222 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:14:04,233 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:15:04,235 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:16:04,249 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:17:04,261 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:17:14,178 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-14 02:17:22,897 - __main__ - INFO - Database initialized
+2026-01-14 02:17:23,137 - __main__ - INFO - All components initialized
+2026-01-14 02:17:23,139 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-14 02:17:23,308 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-14 02:17:24,495 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-14 02:17:25,380 - core.telegram_listener - INFO - Resolved entity for channel -1003500611662: Cypher Bot (ID: 3500611662)
+2026-01-14 02:17:25,380 - core.telegram_listener - INFO - Listening to channel: Cypher Bot (-1003500611662)
+2026-01-14 02:17:25,381 - __main__ - INFO - Listener started. Monitoring 1 channels.
+2026-01-14 02:17:25,382 - core.telegram_listener - INFO - Telegram listener running...
+2026-01-14 02:17:25,383 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:18:05,304 - core.telegram_listener - INFO - New message from Cypher Bot
+2026-01-14 02:18:05,305 - core.telegram_listener - INFO - Processing signal message from channel -1003500611662
+2026-01-14 02:18:05,810 - core.telegram_listener - INFO - Forwarded signal to Fey (1061435133)
+2026-01-14 02:18:05,811 - core.signal_parser - INFO - Using heuristic-based signal parsing
+2026-01-14 02:18:07,484 - core.telegram_listener - INFO - Signal recorded: c7cdf136-d4a3-4f10-b1d8-16afc94a13c8
+2026-01-14 02:18:10,498 - __main__ - INFO - Executing signal c7cdf136-d4a3-4f10-b1d8-16afc94a13c8 for broker Exness
+2026-01-14 02:18:11,411 - core.execution_state_manager - INFO - Starting execution for signal c7cdf136-d4a3-4f10-b1d8-16afc94a13c8
+2026-01-14 02:18:12,417 - core.execution_state_manager - WARNING - Sell signal: invalid price levels (TP should be below entry, SL above)
+2026-01-14 02:18:25,385 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:19:25,397 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:20:25,406 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:21:25,408 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:21:55,714 - __main__ - INFO - Initializing Trading Signal Platform...
+2026-01-14 02:22:03,858 - __main__ - INFO - Database initialized
+2026-01-14 02:22:04,042 - __main__ - INFO - All components initialized
+2026-01-14 02:22:04,044 - telethon.network.mtprotosender - INFO - Connecting to 149.154.167.91:443/TcpFull...
+2026-01-14 02:22:04,272 - telethon.network.mtprotosender - INFO - Connection to 149.154.167.91:443/TcpFull complete!
+2026-01-14 02:22:05,302 - core.telegram_listener - INFO - Connected to Telegram as +2349166987346
+2026-01-14 02:22:06,256 - core.telegram_listener - INFO - Resolved entity for channel -1003500611662: Cypher Bot (ID: 3500611662)
+2026-01-14 02:22:06,257 - core.telegram_listener - INFO - Listening to channel: Cypher Bot (-1003500611662)
+2026-01-14 02:22:06,258 - __main__ - INFO - Listener started. Monitoring 1 channels.
+2026-01-14 02:22:06,258 - core.telegram_listener - INFO - Telegram listener running...
+2026-01-14 02:22:06,259 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:22:34,788 - core.telegram_listener - INFO - New message from Cypher Bot
+2026-01-14 02:22:34,791 - core.telegram_listener - INFO - Processing signal message from channel -1003500611662
+2026-01-14 02:22:35,297 - core.telegram_listener - INFO - Forwarded signal to Fey (1061435133)
+2026-01-14 02:22:35,298 - core.signal_parser - INFO - Using heuristic-based signal parsing
+2026-01-14 02:22:36,899 - core.telegram_listener - INFO - Signal recorded: 8436f42d-94ef-49b0-89eb-43963e8347b6
+2026-01-14 02:22:40,579 - __main__ - INFO - Executing signal 8436f42d-94ef-49b0-89eb-43963e8347b6 for broker Exness
+2026-01-14 02:22:41,407 - core.execution_state_manager - INFO - Starting execution for signal 8436f42d-94ef-49b0-89eb-43963e8347b6
+2026-01-14 02:22:42,425 - core.execution_state_manager - WARNING - Sell signal: invalid price levels (TP should be below entry, SL above)
+2026-01-14 02:23:06,276 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:24:06,292 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active
+2026-01-14 02:25:06,298 - __main__ - INFO - [HEARTBEAT] System Heartbeat - Listener Active

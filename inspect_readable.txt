@@ -1,0 +1,102 @@
+Attributes for XAUUSDm:
+ask: 4604.141
+askhigh: 4618.409
+asklow: 4581.155
+bank: 
+basis: 
+bid: 4603.981
+bidhigh: 4618.249
+bidlow: 4580.995
+category: Metals
+chart_mode: 0
+count: <built-in method count of SymbolInfo object at 0x0000018A8F6B2080>
+currency_base: XAU
+currency_margin: XAU
+currency_profit: USD
+custom: False
+description: Gold vs US Dollar
+digits: 3
+exchange: 
+expiration_mode: 15
+expiration_time: 0
+filling_mode: 3
+formula: 
+index: <built-in method index of SymbolInfo object at 0x0000018A8F6B2080>
+isin: 
+last: 0.0
+lasthigh: 0.0
+lastlow: 0.0
+margin_hedged: 0.0
+margin_hedged_use_leg: False
+margin_initial: 0.0
+margin_maintenance: 0.0
+n_fields: 96
+n_sequence_fields: 96
+n_unnamed_fields: 0
+name: XAUUSDm
+option_mode: 0
+option_right: 0
+option_strike: 0.0
+order_gtc_mode: 0
+order_mode: 127
+page: 
+path: Standard\Forex\XAUUSDm
+point: 0.001
+price_change: -0.2451
+price_greeks_delta: 0.0
+price_greeks_gamma: 0.0
+price_greeks_omega: 0.0
+price_greeks_rho: 0.0
+price_greeks_theta: 0.0
+price_greeks_vega: 0.0
+price_sensitivity: 0.0
+price_theoretical: 0.0
+price_volatility: 0.0
+select: True
+session_aw: 0.0
+session_buy_orders: 0
+session_buy_orders_volume: 0.0
+session_close: 4615.294
+session_deals: 0
+session_interest: 0.0
+session_open: 4615.266
+session_price_limit_max: 0.0
+session_price_limit_min: 0.0
+session_price_settlement: 0.0
+session_sell_orders: 0
+session_sell_orders_volume: 0.0
+session_turnover: 0.0
+session_volume: 0.0
+spread: 160
+spread_float: True
+start_time: 0
+swap_long: -570.0
+swap_mode: 1
+swap_rollover3days: 3
+swap_short: 0.0
+ticks_bookdepth: 0
+time: 1768467676
+trade_accrued_interest: 0.0
+trade_calc_mode: 0
+trade_contract_size: 100.0
+trade_exemode: 2
+trade_face_value: 0.0
+trade_freeze_level: 0
+trade_liquidity_rate: 0.0
+trade_mode: 4
+trade_stops_level: 0
+trade_tick_size: 0.001
+trade_tick_value: 0.1
+trade_tick_value_loss: 0.1
+trade_tick_value_profit: 0.1
+visible: False
+volume: 0
+volume_limit: 0.0
+volume_max: 200.0
+volume_min: 0.01
+volume_real: 0.0
+volume_step: 0.01
+volumehigh: 0
+volumehigh_real: 0.0
+volumelow: 0
+volumelow_real: 0.0

@@ -1,0 +1,58 @@
+﻿================================================================================
+MESSAGE CLASSIFICATION TEST
+================================================================================
+
+[Test 1/8]
+Message: Over $15,000 USD 
+
+TP5 
+120+ pips 
+
+My analysis for the day was right, the first zone was just too e...
+Expected: commentary
+Got: commentary
+python : Traceback (most 
+recent call last):
+At line:1 char:1
++ python backend/test_clas
+sification.py 2>&1 | 
+Out-File -FilePath class 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (T  
+  raceback (most recent   
+  call last)::String)     
+[], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+  File "C:\Users\ikchr\Mus
+ic\telegram-bot\backend\te
+st_classification.py", 
+line 82, in <module>
+    test_classification()
+    ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ikchr\Mus
+ic\telegram-bot\backend\te
+st_classification.py", 
+line 72, in 
+test_classification
+    print("\u2705 PASS")
+    ~~~~~^^^^^^^^^^^
+  File "C:\Python313\Lib\e
+ncodings\cp1252.py", line 
+19, in encode
+    return codecs.charmap_
+encode(input,self.errors,e
+ncoding_table)[0]
+           ~~~~~~~~~~~~~~~
+~~~~~~^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
+UnicodeEncodeError: 
+'charmap' codec can't 
+encode character '\u2705' 
+in position 0: character 
+maps to <undefined>
