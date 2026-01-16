@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react"
 import { apiClient } from "@/lib/api-client"
-
 interface WebSocketMessage {
     type: string
     [key: string]: any
@@ -14,17 +13,15 @@ export function useWebSocket() {
     const wsRef = useRef<WebSocket | null>(null)
     const reconnectTimeoutRef = useRef<NodeJS.Timeout>()
 
+    const token = apiClient.getToken()
+
+    const constApiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"
+    const wsUrl = constApiUrl.replace("http", "ws").replace("/api", "/ws")
+
+    const ws = new WebSocket(`${wsUrl}?token=${token}`)
+
     useEffect(() => {
         const connect = () => {
-            const token = apiClient.getToken()
-            if (!token) return
-
-            // Use WS protocol based on current location protocol (ws/wss) or env
-            const constApiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api"
-            const wsUrl = constApiUrl.replace("http", "ws").replace("/api", "/ws")
-
-            const ws = new WebSocket(`${wsUrl}?token=${token}`)
-
             ws.onopen = () => {
                 console.log("WebSocket Connected")
                 setIsConnected(true)
@@ -66,5 +63,5 @@ export function useWebSocket() {
         }
     }, [])
 
-    return { isConnected, lastMessage }
+    return { isConnected, lastMessage, ws }
 }

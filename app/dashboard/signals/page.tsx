@@ -71,7 +71,7 @@ export default function SignalsPage() {
   const [selectedSignalData, setSelectedSignalData] = useState<any>(null)
 
   // WebSocket
-  const { isConnected, lastMessage } = useWebSocket()
+  const { isConnected, lastMessage, ws } = useWebSocket()
 
   const fetchStatus = async () => {
     const { data } = await apiClient.getSystemStatus()
@@ -126,6 +126,24 @@ export default function SignalsPage() {
         }
 
         fetchSignals()
+      } else if (lastMessage.type === "get_code" && lastMessage.requires_input){
+        const userInput = prompt(lastMessage.input_prompt || "Enter telegram code:");
+        
+        // Send back to backend
+        ws.send(JSON.stringify({
+          type: "code_response",
+          signal_id: lastMessage.signal.id,
+          user_input: userInput
+        }));
+      } else if (lastMessage.type === "get_password" && lastMessage.requires_input){
+        const userInput = prompt(lastMessage.input_prompt || "Enter telegram password:");
+        
+        // Send back to backend
+        ws.send(JSON.stringify({
+          type: "password_response",
+          signal_id: lastMessage.signal.id,
+          user_input: userInput
+        }));
       } else if (lastMessage.type === "telegram_message") {
         addLog(
           `Telegram: ${lastMessage.text}`,
